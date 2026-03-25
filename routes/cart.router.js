@@ -2,8 +2,8 @@ import { Router } from "express";
 
 const router = Router();
 
-router.post("/", (req, res) => {
-  res.send({ message: "productos en el carrito" });
-});
+import { addToCart } from "../controllers/cart.controller.js";
+
+router.post("/", addToCart);
 
 export default router;
