@@ -26,7 +26,7 @@ app.use(express.json());
 app.use("/products", productsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/auth", authRouter);
-app.use(cartRouter);
+app.use("/cart", cartRouter);
 app.use(pingRouter);
 
 export default app;
