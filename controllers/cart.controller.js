@@ -76,3 +76,81 @@ export const addToCart = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+// Agregar un producto al carrito
+
+// - Pasar el token para el middleware
+// - req.user (id, email)
+
+// Recibo id del producto y la cantidad, req.body
+// - Existe el producto por el id
+// - Validar quantity > 0
+
+// Ver si existe el carrito
+// - Buscar carrito que tengo el user igual al req.user.id
+
+// Si no existe el carrito: Crear uno nuevo para el usuario
+// Ver Stock con el req.body.quantity
+
+// Si existe el carrito, ver si ya tiene producto
+
+// Si no tiene el producto, ver stock con el req.body,quantity
+
+// Si tiene el producto el carrito
+
+// Si tengo 10 unidades
+// Lo tengo en el carrito 3 unidades, donde esta registrado, card.products[{quantity: 3}]
+// Quiero agregar al carrito 5 unidades, donde esta registrado, req.body.quantity
+
+export const getCart = async (req, res) => {
+  try {
+    const cart = await Cart.findOne({
+      user: req.user.id,
+    });
+
+    if (!cart) {
+      const newCart = new Cart({
+        user: req.user.id,
+        products: [],
+      });
+
+      return res.json(newCart);
+    }
+
+    res.json(cart);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+export const clearCart = async (req, res) => {
+  try {
+    const cart = await Cart.findOne({
+      user: req.user.id,
+    });
+
+    if (!cart) {
+      const newCart = new Cart({
+        user: req.user.id,
+        products: [],
+      });
+
+      return res.json(newCart);
+    }
+
+    cart.products = [];
+    await cart.save();
+
+    res.json(cart);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+// const user = {
+//   nombre: "Juan",
+// };
+
+// user.nombre 'Juan Pablo'
+
+// console.log(user.nombre);
