@@ -289,7 +289,7 @@ describe("Products endpoint", function () {
 
     const res = await request(app)
       .put(`/products/${product.id}`)
-      .send({ updateProduct })
+      .send(updateProduct)
       .set("Authorization", `Bearer ${login.body.token}`);
 
     // console.log(res.status, res.body);
