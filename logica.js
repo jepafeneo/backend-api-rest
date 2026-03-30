@@ -1,47 +1,44 @@
 const cart = {};
 
-cart.user = "u1";
+cart.user = "69b";
 
 cart.products = [
-  { product: "p1", quantity: 2 },
-  { product: "p2", quantity: 1 }, // Te voy a llamar productExist
+  { product: "69b01", quantity: 2 },
+  { product: "69b02", quantity: 1 },
 ];
 
-// Buscar: find
-// agrego 1 unidad al 'p1' -> Existe: sumo la unidades
-// agregar 2 unidades al 'p5' -> No existe: agrego el nuevo producto: push
-
 console.log(cart);
 
-const productId = "p2";
-const quantity = 2;
+// Agregar 2 unidades al producto `69b01`
+// Buscar carrito, buscar producto, sumar unidades al quantity
 
-const productExist = cart.products.find((p) => p.product == productId);
+// Agregar 1 unidad al producto `69b05`
+// Buscar carrito, buscar producto, crear producto nuevo y agregar con la cantidad
 
-console.log(productExist);
+// Buscar carrito, si existe lo uso, sino existe creo un carrito vacio
 
-productExist.quantity += quantity;
+// Buscar el producto en el carrito
+// Si existe el producto, sumar a quantity
+// Si no existe el producto, crear el producto, push a products
 
-console.log(productExist);
-console.log(cart);
+// Guardar el carrito
 
-// Opción con Index
+// Validación
 
-// const productIndex = cart.products.findIndex((p) => p.product == productId);
+// Usuario existe, tiene un token
 
-// console.log(productIndex);
+// productId, tiene existir
+// quantity, ser igual o mayor a uno, tiene que ser entero, que sea numero
 
-// // cart.products[productIndex].quantity
+// Agregar un producto, buscando el producto
 
-// const newProduct = {
-//   product: productId,
-//   quantity: cart.products[productIndex].quantity + quantity,
-// };
+// Stock
+// Si el producto nuevo, quantity es menor igual al stock
 
-// cart.products[productIndex] = newProduct;
+// Si el producto existe
 
-// console.log(cart);
+// en el carrito tengo 9 unidades de el mouse
+// quiero comprar 3 mas
+// Sumar la cantidad que tiene el producto en el carrito + quantity menor o igual al stock
 
-// Se puede user splice
 
-// https://es.javascript.info/array-methods#splice
