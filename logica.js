@@ -1,13 +1,13 @@
-const cart = {};
+// const cart = {};
 
-cart.user = "69b";
+// cart.user = "69b";
 
-cart.products = [
-  { product: "69b01", quantity: 2 },
-  { product: "69b02", quantity: 1 },
-];
+// cart.products = [
+//   { product: "69b01", quantity: 2 },
+//   { product: "69b02", quantity: 1 },
+// ];
 
-console.log(cart);
+// console.log(cart);
 
 // Agregar 2 unidades al producto `69b01`
 // Buscar carrito, buscar producto, sumar unidades al quantity
@@ -41,4 +41,22 @@ console.log(cart);
 // quiero comprar 3 mas
 // Sumar la cantidad que tiene el producto en el carrito + quantity menor o igual al stock
 
+// ---
 
+const productId = "69b03";
+
+const products = [
+  { product: "69b01", name: "Mouse", price: 100, stock: 10 },
+  { product: "69b02", name: "Teclado", price: 50, stock: 0 },
+  { product: "69b03", name: "Monitor", price: 500, stock: 2 },
+  { product: "69b04", name: "Parlantes", price: 15, stock: 0 },
+];
+
+const filtered = products.filter((p) => p.product != productId);
+
+// const filtered = products.filter((p) => p.stock != 0);
+
+console.log(filtered);
+
+// Obtener el productId del req.params
+// Buscar el carrito
