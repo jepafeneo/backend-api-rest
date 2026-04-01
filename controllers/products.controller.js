@@ -62,8 +62,13 @@ export const createProduct = async (req, res) => {
     const product = new Product(data);
     await product.save();
 
-    res.status(201).json(product);
+    const productWithCategory = await Product.findById(product.id).populate(
+      "category",
+    );
+
+    res.status(201).json(productWithCategory);
   } catch (error) {
+    // console.log(error);
     if (error.name == "ValidationError") {
       return res.status(422).json({ error: error.errors });
     }
