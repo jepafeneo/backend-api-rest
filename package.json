@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "mocha --require test/setup.js test/**/*.test.js --exit"
+    "test": "mocha --require test/setup.js --ignore test/seed.js test/**/*.test.js --exit"
   },
   "author": "Jean Paul Ferreira",
   "license": "MIT",
