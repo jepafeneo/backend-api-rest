@@ -22,4 +22,8 @@ app.use("/auth", authRouter);
 app.use("/cart", cartRouter);
 app.use(pingRouter);
 
+app.get("/prueba", (req, res) => {
+  res.send("Prueba de nueva rama");
+});
+
 export default app;
